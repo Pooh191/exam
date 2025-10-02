@@ -1,3 +1,166 @@
-<a href="science.html">วิทยาศาสตร์</a>
-<a href="thai.html">ภาษาไทย</a>
-<a href="Career">การงานอาชีพ</a>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูวิชาการ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sukhumvit Set', 'Kanit', 'Sarabun', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .menu-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h1:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border-radius: 2px;
+        }
+        
+        .menu-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-link {
+            display: block;
+            padding: 18px 25px;
+            background-color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid transparent;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .menu-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .menu-link:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .menu-link:hover:before {
+            transform: scaleX(1);
+        }
+        
+        .science:hover:before {
+            background: linear-gradient(to right, #FF416C, #FF4B2B);
+        }
+        
+        .thai:hover:before {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+        }
+        
+        .career:hover:before {
+            background: linear-gradient(to right, #ff8c00, #ff0080);
+        }
+        
+        .icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        @media (max-width: 480px) {
+            .menu-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .menu-link {
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>เมนูวิชาการ</h1>
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="science.html" class="menu-link science">
+                    <span class="icon">🔬</span>
+                    วิทยาศาสตร์
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="thai.html" class="menu-link thai">
+                    <span class="icon">📚</span>
+                    ภาษาไทย
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="Career.html" class="menu-link career">
+                    <span class="icon">💼</span>
+                    การงานอาชีพ
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
