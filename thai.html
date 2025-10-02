@@ -4,176 +4,354 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แนวข้อสอบปลายภาคเรียนที่ ๑/๒๕๖๘ วิชาภาษาไทย</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Sriracha&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #B71C1C;
+            --primary-light: #E53935;
+            --secondary: #1A237E;
+            --accent: #FFC107;
+            --light: #F5F5F5;
+            --dark: #212121;
+            --success: #2E7D32;
+            --info: #0277BD;
+            --thai-gold: #D4AF37;
+            --thai-teal: #00695C;
+        }
+        
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'TH Sarabun New', 'Sarabun', 'Garuda', sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f9f9f9 0%, #e8f5e9 100%);
+            color: var(--dark);
+            line-height: 1.7;
+            font-family: 'Kanit', sans-serif;
             padding: 20px;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
         }
         
+        /* Header Styles */
         header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 30px;
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #8B0000;
-            padding-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--thai-gold);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
         }
         
         h1 {
-            color: #8B0000;
-            font-size: 28px;
+            font-size: 2.2rem;
             margin-bottom: 10px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
         
         .exam-info {
-            font-size: 18px;
+            font-size: 1.2rem;
             margin-bottom: 5px;
+            opacity: 0.9;
         }
         
+        .exam-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--thai-gold);
+        }
+        
+        /* Section Styles */
         .section {
-            margin-bottom: 30px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 25px;
+            border-radius: 12px;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
         }
         
         .section-title {
-            color: #8B0000;
-            font-size: 22px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 8px;
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--thai-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
+        .section-title i {
+            color: var(--thai-gold);
+        }
+        
+        /* Question Styles */
         .question-list {
-            padding-left: 20px;
+            padding-left: 10px;
         }
         
         .question-item {
-            margin-bottom: 15px;
-            font-size: 18px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
+        .question-item strong {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* Table Styles */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 16px;
+            margin: 20px 0;
+            font-size: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            border: 1px solid #e0e0e0;
+            padding: 14px;
             text-align: left;
         }
         
         th {
-            background-color: #8B0000;
+            background-color: var(--secondary);
             color: white;
+            font-weight: 500;
         }
         
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f8f9fa;
         }
         
-        .highlight {
-            background-color: #fffacd;
-            padding: 3px;
-            border-radius: 3px;
+        tr:hover {
+            background-color: #e3f2fd;
         }
         
+        /* Box Styles */
         .tip-box {
-            background-color: #e6f7ff;
-            border-left: 4px solid #1890ff;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid var(--info);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .example-box {
-            background-color: #f0f8ff;
-            border: 1px solid #b0c4de;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .example-title {
-            color: #2e8b57;
-            font-weight: bold;
-            margin-bottom: 10px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 1px solid #c8e6c9;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .answer-box {
-            background-color: #f0fff0;
-            border: 1px solid #90ee90;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+            border: 1px solid #aed581;
+            padding: 18px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
         }
         
+        .example-title {
+            color: var(--thai-teal);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Highlight Styles */
+        .highlight {
+            background-color: #fff9c4;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: #e65100;
+        }
+        
+        /* Footer Styles */
         footer {
             text-align: center;
             margin-top: 30px;
-            font-size: 16px;
-            color: #666;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            color: #616161;
+            font-size: 1rem;
+            border-top: 1px solid #e0e0e0;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                border-radius: 10px;
+            }
+            
+            header {
+                padding: 20px;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 1.8rem;
+            }
+            
+            .exam-info {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 15px;
             }
             
             .section-title {
-                font-size: 20px;
+                font-size: 1.4rem;
+            }
+            
+            .question-item {
+                padding: 15px;
             }
             
             table {
-                font-size: 14px;
+                font-size: 0.9rem;
             }
+            
+            th, td {
+                padding: 10px;
+            }
+        }
+        
+        /* Decorative Elements */
+        .thai-pattern {
+            height: 20px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--thai-gold) 50%, var(--primary) 100%);
+            opacity: 0.8;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--thai-gold);
+            color: var(--dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .point-badge {
+            background: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="thai-pattern"></div>
+        
         <header>
-            <h1>แนวข้อสอบปลายภาคเรียนที่ ๑/๒๕๖๘</h1>
-            <p class="exam-info">วิชาภาษาไทย รหัส ท ๒๓๑๐๑ (เวลา ๖๐ นาที)</p>
-            <p class="exam-info">สอบวันที่ ๓ ตุลาคม ๒๕๖๘ เวลา ๑๐.๑๐ – ๑๑.๑๐ น.</p>
+            <div class="header-content">
+                <div class="exam-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h1>แนวข้อสอบปลายภาคเรียนที่ ๑/๒๕๖๘</h1>
+                <p class="exam-info">วิชาภาษาไทย รหัส ท ๒๓๑๐๑</p>
+                <p class="exam-info">เวลา ๖๐ นาที</p>
+                <p class="exam-info">สอบวันที่ ๓ ตุลาคม ๒๕๖๘ เวลา ๑๐.๑๐ – ๑๑.๑๐ น.</p>
+            </div>
         </header>
         
         <div class="section">
-            <h2 class="section-title">ข้อสอบปรนัย ๔๐ ข้อ : ๒๐ คะแนน</h2>
+            <h2 class="section-title">
+                <i class="fas fa-pencil-alt"></i>
+                ข้อสอบปรนัย ๔๐ ข้อ
+                <span class="point-badge"><i class="fas fa-star"></i> ๒๐ คะแนน</span>
+            </h2>
             
             <div class="question-list">
                 <div class="question-item">
-                    <strong>๑. ระดับภาษา</strong> (การเลือกใช้คำกับพระสงฆ์ + อ่านใบความรู้และเฉลยแบบฝึกหัด)
+                    <div class="question-number">๑</div>
+                    <strong>ระดับภาษา</strong> (การเลือกใช้คำกับพระสงฆ์ + อ่านใบความรู้และเฉลยแบบฝึกหัด)
                     <div class="tip-box">
-                        <strong>เทคนิค :</strong> อ่านข้อความแล้วจับผิดว่ามีคำภาษาพูดปนอยู่หรือไม่ ถ้ามีจะเป็น "กึ่งทางการ" ทันที
+                        <strong><i class="fas fa-lightbulb"></i> เทคนิค :</strong> อ่านข้อความแล้วจับผิดว่ามีคำภาษาพูดปนอยู่หรือไม่ ถ้ามีจะเป็น "กึ่งทางการ" ทันที
                     </div>
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบระดับภาษา</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบระดับภาษา</div>
                         <p><strong>ข้อ 1.</strong> ข้อใดใช้ภาษาได้เหมาะสมกับสถานการณ์</p>
                         <p>ก. หลวงพ่อครับ ผมขออนุญาตถวายปัจจัยเพื่อสมทบทุนสร้างพระอุโบสถ</p>
                         <p>ข. ท่านพระอาจารย์ ขอให้ช่วยเทศน์สอนวิธีทำสมาธิให้หน่อยครับ</p>
@@ -181,12 +359,12 @@
                         <p>ง. สวัสดีครับหลวงพี่ วันนี้ดูหน้าตาแจ่มใสจัง</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบ:</strong> ข้อ ก <br>
+                            <strong><i class="fas fa-check-circle"></i> คำตอบ:</strong> ข้อ ก <br>
                             <strong>เหตุผล:</strong> ใช้คำว่า "ถวาย" ซึ่งเหมาะสมกับการใช้กับพระสงฆ์ และใช้ภาษาทางการ
                         </div>
                     </div>
                     
-                    <h3>ตารางสรุประดับภาษา ๕ ระดับ</h3>
+                    <h3 style="margin-top: 20px; color: var(--secondary);">ตารางสรุประดับภาษา ๕ ระดับ</h3>
                     <table>
                         <tr>
                             <th>ระดับภาษา</th>
@@ -228,10 +406,11 @@
                 </div>
                 
                 <div class="question-item">
-                    <strong>๒. ย่อความ</strong> (หาใจความสำคัญ = มักอยู่ช่วงต้นของบทความ)
+                    <div class="question-number">๒</div>
+                    <strong>ย่อความ</strong> (หาใจความสำคัญ = มักอยู่ช่วงต้นของบทความ)
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบย่อความ</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบย่อความ</div>
                         <p><strong>ข้อ 2.</strong> ให้นักเรียนอ่านบทความต่อไปนี้แล้วตอบคำถาม</p>
                         <p>"การอ่านหนังสือเป็นกิจกรรมที่มีประโยชน์อย่างยิ่งต่อการพัฒนาสติปัญญาและความคิดของมนุษย์ 
                         หนังสือช่วยเปิดโลกทัศน์ให้กว้างไกล ทำให้เราได้เรียนรู้ประสบการณ์ของผู้อื่น 
@@ -240,16 +419,17 @@
                         <p>ใจความสำคัญของบทความนี้คืออะไร?</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบ:</strong> การอ่านหนังสือมีประโยชน์ต่อการพัฒนาสติปัญญาและความคิดของมนุษย์
+                            <strong><i class="fas fa-check-circle"></i> คำตอบ:</strong> การอ่านหนังสือมีประโยชน์ต่อการพัฒนาสติปัญญาและความคิดของมนุษย์
                         </div>
                     </div>
                 </div>
                 
                 <div class="question-item">
-                    <strong>๓. จดหมาย</strong> (ระดับภาษา = ภาษาทางการ / คำขึ้นต้น+ลงท้าย = เรียน – ขอแสดงความนับถือ)
+                    <div class="question-number">๓</div>
+                    <strong>จดหมาย</strong> (ระดับภาษา = ภาษาทางการ / คำขึ้นต้น+ลงท้าย = เรียน – ขอแสดงความนับถือ)
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบจดหมาย</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบจดหมาย</div>
                         <p><strong>ข้อ 3.</strong> ข้อใดเป็นคำลงท้ายจดหมายราชการที่ถูกต้อง</p>
                         <p>ก. ด้วยความปราถนาดี</p>
                         <p>ข. ขอแสดงความนับถือ</p>
@@ -257,14 +437,15 @@
                         <p>ง. ด้วยความเคารพอย่างสูง</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบ:</strong> ข้อ ข <br>
+                            <strong><i class="fas fa-check-circle"></i> คำตอบ:</strong> ข้อ ข <br>
                             <strong>เหตุผล:</strong> "ขอแสดงความนับถือ" เป็นคำลงท้ายจดหมายราชการที่ถูกต้องตามแบบแผน
                         </div>
                     </div>
                 </div>
                 
                 <div class="question-item">
-                    <strong>๔. แต่งบทร้อยกรอง</strong> (กลอนสุภาพ / กาพย์ยานี ๑๑ / โคลงสี่สุภาพ : อ่านใบความรู้และแบบฝึกหัดที่ครูให้เดิม)
+                    <div class="question-number">๔</div>
+                    <strong>แต่งบทร้อยกรอง</strong> (กลอนสุภาพ / กาพย์ยานี ๑๑ / โคลงสี่สุภาพ : อ่านใบความรู้และแบบฝึกหัดที่ครูให้เดิม)
                     <ul>
                         <li>คำเอก = ใช้ "คำตาย" แทนได้</li>
                         <li>คำเอกโทษ = มองเห็นเป็น "รูปเอก" แต่ในอดีตเคยเป็นรูปอื่นมาก่อน เช่น หน้า เปลี่ยนเป็น น่า</li>
@@ -272,7 +453,7 @@
                     </ul>
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบแต่งบทร้อยกรอง</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบแต่งบทร้อยกรอง</div>
                         <p><strong>ข้อ 4.</strong> ให้นักเรียนเติมคำในช่องว่างของโคลงสี่สุภาพต่อไปนี้ให้สัมผัสถูกต้อง</p>
                         <p>"เห็น___________ร่วงโรยร้าง (วรรคที่ 1)<br>
                         ใจก็นึก___________อาลัย (วรรคที่ 2)<br>
@@ -280,7 +461,7 @@
                         เหมือนชีวิต___________ดาย" (วรรคที่ 4)</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบตัวอย่าง:</strong><br>
+                            <strong><i class="fas fa-check-circle"></i> คำตอบตัวอย่าง:</strong><br>
                             "เห็น<b>ดอกไม้</b>ร่วงโรยร้าง<br>
                             ใจก็นึก<b>ถึงน</b>้าอาลัย<br>
                             ฤดู<b>หน</b>าผ่านไป<br>
@@ -290,17 +471,18 @@
                 </div>
                 
                 <div class="question-item">
-                    <strong>๕. ข้อสอบการอ่านแนว PISA</strong> = ๒ ข้อ
+                    <div class="question-number">๕</div>
+                    <strong>ข้อสอบการอ่านแนว PISA</strong> = ๒ ข้อ
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบการอ่านแนว PISA</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบการอ่านแนว PISA</div>
                         <p><strong>ข้อ 5.</strong> จากการสำรวจพบว่า นักเรียนไทยใช้เวลาอ่านหนังสือเฉลี่ย ๒ ชั่วโมงต่อวัน 
                         ในขณะที่นักเรียนในประเทศฟินแลนด์ใช้เวลาอ่านหนังสือเฉลี่ย ๔ ชั่วโมงต่อวัน 
                         และนักเรียนในประเทศญี่ปุ่นใช้เวลาอ่านหนังสือเฉลี่ย ๓ ชั่วโมงต่อวัน</p>
                         <p>จากข้อมูลข้างต้น ให้นักเรียนวิเคราะห์ว่าปัจจัยใดอาจส่งผลต่อพฤติกรรมการอ่านของนักเรียนไทย</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบตัวอย่าง:</strong> ปัจจัยที่อาจส่งผลได้แก่ วัฒนธรรมการอ่านที่ยังไม่เข้มแข็ง 
+                            <strong><i class="fas fa-check-circle"></i> คำตอบตัวอย่าง:</strong> ปัจจัยที่อาจส่งผลได้แก่ วัฒนธรรมการอ่านที่ยังไม่เข้มแข็ง 
                             การแข่งขันจากสื่อดิจิทัลและโซเชียลมีเดีย ระบบการศึกษาที่เน้นการท่องจำมากกว่าการส่งเสริมการอ่านอย่างต่อเนื่อง 
                             และสภาพแวดล้อมในบ้านที่อาจไม่เอื้อต่อการอ่านหนังสือ
                         </div>
@@ -310,21 +492,26 @@
         </div>
         
         <div class="section">
-            <h2 class="section-title">ข้อสอบอัตนัย ๓ ข้อ : ๑๐ คะแนน</h2>
+            <h2 class="section-title">
+                <i class="fas fa-edit"></i>
+                ข้อสอบอัตนัย ๓ ข้อ
+                <span class="point-badge"><i class="fas fa-star"></i> ๑๐ คะแนน</span>
+            </h2>
             
             <div class="question-list">
                 <div class="question-item">
-                    <strong>๑. ระดับภาษา</strong> (เปลี่ยนศัพท์ไม่เป็นทางการให้เป็นศัพท์ทางการ)
+                    <div class="question-number">๑</div>
+                    <strong>ระดับภาษา</strong> (เปลี่ยนศัพท์ไม่เป็นทางการให้เป็นศัพท์ทางการ)
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบอัตนัยระดับภาษา</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบอัตนัยระดับภาษา</div>
                         <p><strong>ข้อ 1.</strong> จงเปลี่ยนข้อความต่อไปนี้ให้เป็นภาษาทางการ</p>
                         <p>"ผมกับเพื่อนๆ กำลังจะไปเที่ยวทะเลที่ชะอำในวันเสาร์นี้ 
                         เราตั้งใจจะไปเล่นน้ำและปิกนิกกันที่ชายหาด 
                         ถ้าอากาศดีไม่มีฝน คงจะสนุกมากเลย"</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบตัวอย่าง:</strong><br>
+                            <strong><i class="fas fa-check-circle"></i> คำตอบตัวอย่าง:</strong><br>
                             "ข้าพเจ้าและเพื่อนๆ มีแผนจะเดินทางไปเที่ยวทะเลที่ชะอำในวันเสาร์นี้ 
                             เราตั้งใจจะไปเล่นน้ำและจัดปิกนิกบริเวณชายหาด 
                             หากสภาพอากาศเอื้ออำนวยไม่มีฝนตก คงจะเป็นการพักผ่อนที่เพลิดเพลินอย่างยิ่ง"
@@ -333,15 +520,16 @@
                 </div>
                 
                 <div class="question-item">
-                    <strong>๒. การเลือกใช้ภาษาให้เหมาะสมตามสถานการณ์</strong>
+                    <div class="question-number">๒</div>
+                    <strong>การเลือกใช้ภาษาให้เหมาะสมตามสถานการณ์</strong>
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบการเลือกใช้ภาษา</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบการเลือกใช้ภาษา</div>
                         <p><strong>ข้อ 2.</strong> จงเขียนข้อความแนะนำการรักษาสุขภาพในช่วงฤดูหนาว 
                         เพื่อนำไปลงในจดหมายข่าวของโรงเรียน โดยใช้ภาษาที่เหมาะสม</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบตัวอย่าง:</strong><br>
+                            <strong><i class="fas fa-check-circle"></i> คำตอบตัวอย่าง:</strong><br>
                             "ในช่วงฤดูหนาวนี้ ทางโรงเรียนขอแนะนำให้นักเรียนดูแลสุขภาพด้วยการสวมใส่เสื้อผ้าให้ความอบอุ่นเพียงพอ 
                             ดื่มน้ำอุ่นและรับประทานอาหารที่มีประโยชน์ ออกกำลังกายสม่ำเสมอ 
                             และนอนหลับพักผ่อนให้เพียงพอ เพื่อป้องกันการเจ็บป่วยจากโรคต่างๆ 
@@ -351,10 +539,11 @@
                 </div>
                 
                 <div class="question-item">
-                    <strong>๓. โคลงสี่สุภาพ</strong> (แต่งโคลงเติมลงในวรรคที่หายไป)
+                    <div class="question-number">๓</div>
+                    <strong>โคลงสี่สุภาพ</strong> (แต่งโคลงเติมลงในวรรคที่หายไป)
                     
                     <div class="example-box">
-                        <div class="example-title">ตัวอย่างข้อสอบแต่งโคลงสี่สุภาพ</div>
+                        <div class="example-title"><i class="fas fa-question-circle"></i> ตัวอย่างข้อสอบแต่งโคลงสี่สุภาพ</div>
                         <p><strong>ข้อ 3.</strong> จงแต่งโคลงสี่สุภาพ ๑ บท โดยมีคำกำหนดดังนี้</p>
                         <p>วรรคที่ ๑ ต้องมีคำว่า "การศึกษา"<br>
                         วรรคที่ ๒ ต้องมีคำว่า "อนาคต"<br>
@@ -362,7 +551,7 @@
                         วรรคที่ ๔ ต้องมีคำว่า "พัฒนา"</p>
                         
                         <div class="answer-box">
-                            <strong>คำตอบตัวอย่าง:</strong><br>
+                            <strong><i class="fas fa-check-circle"></i> คำตอบตัวอย่าง:</strong><br>
                             "<b>การศึกษา</b>เป็นเครื่องนำทาง (วรรคที่ 1)<br>
                             สู่<b>อนาคต</b>ที่สดใสเอย (วรรคที่ 2)<br>
                             ต้อง<b>เรียนรู้</b>ไม่หยุดหย่อน (วรรคที่ 3)<br>
